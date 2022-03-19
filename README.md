@@ -4,4 +4,4 @@
 
 效果图
 
-![image-20220318222400214](C:/Users/24019/AppData/Roaming/Typora/typora-user-images/image-20220318222400214.png)
+![image-20220318222400214](README.assets/image-20220318222400214.png)
