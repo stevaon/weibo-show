@@ -1,0 +1,34 @@
+/* Base styling */
+
+body {
+    margin: 0 auto;
+    font-family: 'Raleway', sans-serif;
+}
+.search__container {
+    border: none;
+    height: 1.75rem;
+    line-height: 1.75rem;
+    font-size: .8125rem;
+    padding: 0 0 0 2.1875rem;
+    background-color: #fff;
+}
+.lite-topbar.main-top{
+    height: 63px;
+}
+.m-tips{
+    height: 3.05rem;
+}
+.search__input {
+    width: 100%;
+    background-color: transparent;
+    font-size: 14px;
+    line-height: 18px;
+
+    border: none;
+    height: 1.75rem;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+}
+.m-auto-list{
+    box-sizing: border-box;
+}

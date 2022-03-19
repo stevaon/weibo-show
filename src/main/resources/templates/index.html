@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Elasticsearch学习笔记之微博搜索</title>
+    <link rel="stylesheet" href="https://h5.sinaimg.cn/marvel/v1.4.5/css/card/cards.css">
+    <link rel="stylesheet" href="https://h5.sinaimg.cn/marvel/v1.4.5/css/lib/base.css">
+    <link rel="stylesheet" href="https://h5.sinaimg.cn/m/weibo-lite/css/app.971404c6.css">
+    <link rel="stylesheet" th:href="@{./css/style.css}">
+    <script th:src="@{./js/vue.min.js}"></script>
+    <script th:src="@{./js/axios.min.js}"></script>
+    <style>[class*=m-imghold] > a > img {
+        z-index: 0;
+        height: 100%;
+        position: absolute;
+    }</style>
+</head>
+<body>
+<div id="app" class="m-container-max">
+    <div class="lite-topbar main-top">
+        <div class="nav-top">
+            <div class="nav-left unlogin-logo"></div>
+            <div class="nav-search unlogin-search">
+                <aside>
+                    <label class="m-search">
+                        <i class="m-font m-font-search"></i>
+                        <div class="search__container">
+                            <input v-model="keyword" @keyup.enter="searchKey" class="search__input" type="text"
+                                   placeholder="新疆出现神秘绝美的蓝色湖面">
+                        </div>
+                    </label>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+    <div class="m-tips m-tips-tp"></div>
+    <div class="card m-panel card9 weibo-member" v-for="result in results">
+
+        <div class="card-wrap">
+            <div class="card-main">
+                <header class="weibo-top m-box m-avatar-box">
+                    <a class="m-img-box" href="undefined" target="_blank">
+                        <img :src="result.avatar">
+                        <i class="m-icon m-icon-goldv-static"></i>
+                    </a>
+                    <div class="m-box-col m-box-dir m-box-center">
+                        <div class="m-text-box">
+                            <a>
+                                <h3 class="m-text-cut">
+                                    {{result.user}}
+                                    <!--显示昵称后面的小图标-->
+                                    <i class="m-icon"></i>
+                                </h3>
+                            </a>
+                            <h4 class="m-text-cut">
+                                <span class="time">{{result.time}}</span>
+                                <span class="from">{{result.source}}</span></h4>
+                        </div>
+                    </div>
+                </header>
+                <article class="weibo-main">
+                    <div class="weibo-og">
+                        <div class="weibo-text" v-html="result.content">
+
+                        </div>
+                        <!--微博图片-->
+                        <div>
+                            <div class="weibo-media-wraps weibo-media media-b">
+                                <ul class="m-auto-list">
+                                    <li class="m-auto-box" v-for="p in result.pic">
+                                        <div class="m-img-box m-imghold-square">
+                                            <a target="_blank"
+                                               :href="p">
+                                                <img :src="p">
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <footer class="m-ctrl-box m-box-center-a">
+                    <div class="m-diy-btn m-box-col m-box-center m-box-center-a">
+                        <i class="m-font m-font-forward"></i>
+                        <h4>{{result.repostsCount}}</h4></div>
+                    <span class="m-line-gradient"></span>
+                    <div class="m-diy-btn m-box-col m-box-center m-box-center-a">
+                        <i class="m-font m-font-comment"></i>
+                        <h4>{{result.commentsCount}}</h4></div>
+                    <span class="m-line-gradient"></span>
+                    <div class="m-diy-btn m-box-col m-box-center m-box-center-a">
+                        <i class="m-icon m-icon-like"></i>
+                        <h4>{{result.attitudesCount}}</h4></div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            keyword: "",
+            results: []
+        },
+        methods: {
+            searchKey() {
+                var keyword = this.keyword;
+                // console.log(keyword);
+                axios.get('search/' + keyword + "/0/20").then(
+                    response => {
+                    // console.log(response.data);
+                this.results = response.data;
+            });
+            }
+        }
+    })
+</script>
+</body>
+</html>
