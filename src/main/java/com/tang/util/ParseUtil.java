@@ -1,4 +1,4 @@
-package com.kang.util;
+package com.tang.util;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -8,12 +8,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Description:
- * @Author: mr_kang66
- * @Email: kangz66@foxmail.com / movieatrevel@gmail.com
- * @Date: 2022-03-17  19:00
- */
+
 @Component
 public class ParseUtil {
 	public String request(String url) throws IOException {

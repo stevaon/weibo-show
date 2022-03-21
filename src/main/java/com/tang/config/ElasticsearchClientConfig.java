@@ -1,20 +1,13 @@
-package com.kang.config;
+package com.tang.config;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
-import co.elastic.clients.json.jsonb.JsonbJsonpMapper;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @Description:
- * @Author: mr_kang66
- * @Email: kangz66@foxmail.com / movieatrevel@gmail.com
- * @Date: 2022-03-17  18:53
- */
 @Configuration
 public class ElasticsearchClientConfig {
 	@Bean

@@ -1,10 +1,10 @@
-package com.kang.crawler;
+package com.tang.crawler;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kang.entity.Hot;
-import com.kang.entity.Weibo;
-import com.kang.util.ParseUtil;
+import com.tang.entity.Hot;
+import com.tang.entity.Weibo;
+import com.tang.util.ParseUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +17,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @Description:
- * @Author: mr_kang66
- * @Email: kangz66@foxmail.com / movieatrevel@gmail.com
- * @Date: 2022-03-17  19:18
- */
+
 @Component
 public class WeiboParser {
 	@Autowired

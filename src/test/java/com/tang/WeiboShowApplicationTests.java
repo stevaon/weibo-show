@@ -1,6 +1,6 @@
-package com.kang;
+package com.tang;
 
-import com.kang.crawler.WeiboParser;
+import com.tang.crawler.WeiboParser;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

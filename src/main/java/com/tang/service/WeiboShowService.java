@@ -1,4 +1,4 @@
-package com.kang.service;
+package com.tang.service;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
@@ -12,9 +12,9 @@ import co.elastic.clients.elasticsearch.core.bulk.IndexOperation;
 import co.elastic.clients.elasticsearch.core.search.Highlight;
 import co.elastic.clients.elasticsearch.core.search.HighlightField;
 import co.elastic.clients.elasticsearch.core.search.Hit;
-import com.kang.crawler.WeiboParser;
-import com.kang.entity.Hot;
-import com.kang.entity.Weibo;
+import com.tang.crawler.WeiboParser;
+import com.tang.entity.Hot;
+import com.tang.entity.Weibo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +25,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-/**
- * @Description:
- * @Author: mr_kang66
- * @Email: kangz66@foxmail.com / movieatrevel@gmail.com
- * @Date: 2022-03-17  21:12
- */
+
 @Service
 public class WeiboShowService {
 	private final Log logger = LogFactory.getLog(WeiboShowService.class);
